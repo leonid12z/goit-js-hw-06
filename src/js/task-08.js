@@ -5,7 +5,7 @@ loginForm.addEventListener('submit', onFormSubmit);
 function onFormSubmit(event) {
    event.preventDefault();
    if (!event.currentTarget.elements.email.value || !event.currentTarget.elements.password.value) {
-      alert('Пожалуста, заполните поля "Email" и "Password" ');
+      alert('Пожалуйста, заполните поля "Email" и "Password"');
    }
 
    const formData = new FormData(event.currentTarget);
