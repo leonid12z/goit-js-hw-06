@@ -1,21 +1,25 @@
-const loginForm = document.querySelector('form.login-form');
+const loginFormLabel = document.querySelector('form.login-form');
 
-loginForm.addEventListener('submit', onFormSubmit);
 
-function onFormSubmit(event) {
+function loginForm(event) {
    event.preventDefault();
-   if (!event.currentTarget.elements.email.value || !event.currentTarget.elements.password.value) {
-      alert('Пожалуйста, заполните поля "Email" и "Password"');
+
+
+const {
+   elements: { email, password } } = event.currentTarget
+   
+   if (email.value === '' || password.value === '') {
+      return alert('Пожалуйста, заполните поля "Email" и "Password"');
+   } else {
+      const name = {
+         nameEmail: email.value,
+         namePassword: password.value,
+      };
+
+      console.log(name)
+
+      event.currentTarget.reset();
    }
+}   
 
-   const formData = new FormData(event.currentTarget);
-
-   console.log(formData);
-
-   formData.forEach((value, name) => {
-      console.log('onFormSubmit -> name', name);
-      console.log('onFormSubmit -> value', value);
-   });
-
-   loginForm.reset();
-}
+loginFormLabel.addEventListener('submit', loginForm);

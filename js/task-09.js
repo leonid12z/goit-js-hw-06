@@ -1,16 +1,16 @@
-const cry = {
-  button: document.querySelector('button.change-color'),
-  span: document.querySelector('span.color'),
-};
+const cryBtm = document.querySelector('.change-color');
+const bodyBtm = document.querySelector('body');
+const spanBtm = document.querySelectorAll('.color');
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
 
-const changeColorBody = () => {
-  document.body.style.backgroundColor = getRandomHexColor();
-  cry.span.textContent = getRandomHexColor();
-};
+function chanColor(event) {
+  const bodyColor = getRandomHexColor();
+  bodyBtm.style.backgroundColor = bodyColor;
+  spanBtm.textContent = bodyColor
+}
 
-cry.button.addEventListener('click', changeColorBody);
+cryBtm.addEventListener('click', chanColor);

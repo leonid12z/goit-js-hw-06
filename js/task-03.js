@@ -13,13 +13,12 @@ const images = [
   },
 ];
 
+const listImagesUl = document.querySelector('ul.gallery');
 
-const listImagesUl = document.querySelector("ul.gallery");
+const imagesGallery = images.map(image => {
+  return `<li class = flexbox><img src = "${image.url}" alt = "${image.alt}"></img></li>`;
+}).join('')
 
-let itemUl = '';
-images.map((image) => {
-  itemUl += `<li class = flexbox><img src = "${image.url}" alt = "${image.alt}"></img></li>`;
-});
 
-listImagesUl.insertAdjacentHTML("afterbegin", itemUl);
+listImagesUl.insertAdjacentHTML("afterbegin", imagesGallery);
 console.log(listImagesUl);
